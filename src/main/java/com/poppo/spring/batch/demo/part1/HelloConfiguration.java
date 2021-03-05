@@ -24,7 +24,7 @@ public class HelloConfiguration {
     @Bean
     public Job helloJob() {
         return jobBuilderFactory.get("helloJob")            // 잡을 구분하는 이름. 이름으로 해당 잡을 실행시킬 수 있다.
-                .incrementer(new RunIdIncrementer())        // 잡이 실행될 때 마다 파라미터 ID를 만들어 줌
+                .incrementer(new RunIdIncrementer())        // 잡이 실행될 때 마다 파라미터 ID를 만들어 줌. 늘 다른 job이 생성됨.
                 .start(this.helloStep())                    // 최초 실행될 스텝을 지정한다.
                 .build();
     }
